@@ -56,6 +56,8 @@ body {
    /* Definimos un ancho máximo para que el texto no se estire demasiado
        en pantallas muy grandes, mejorando la legibilidad. */
    max-width: 800px;
+   margin: 0 auto;
+   /* Asegurar centrado adicional */
 }
 
 /* DOCUMENTACIÓN (CSS): --- Título Principal (h1) ---
@@ -80,6 +82,9 @@ body {
 
    /* Altura de línea para que no esté muy pegado el texto de arriba y abajo */
    line-height: 1.2;
+   word-break: break-word;
+   /* Evitar corte de títulos */
+   hyphens: auto;
 }
 
 /* DOCUMENTACIÓN (CSS): --- Texto con Degradado ---
@@ -304,9 +309,37 @@ nav.hidden {
    width: 100%;
 }
 
+/* Hamburger Menu Styles */
+.hamburger {
+   display: none;
+   flex-direction: column;
+   cursor: pointer;
+   gap: 5px;
+}
+
+.hamburger span {
+   width: 25px;
+   height: 3px;
+   background: #ffffff;
+   transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+   transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+   opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+   transform: rotate(-45deg) translate(7px, -6px);
+}
+
 /* Hero Section */
 .hero {
-   min-height: 100%;
+   min-height: 100vh;
+   /* Cambiado a vh para mejor ajuste */
    display: flex;
    align-items: center;
    justify-content: center;
@@ -321,6 +354,8 @@ nav.hidden {
    max-width: 1400px;
    width: 100%;
    text-align: center;
+   margin: 0 auto;
+   /* Asegurar centrado */
 }
 
 .glitch-wrapper {
@@ -332,7 +367,8 @@ nav.hidden {
    font-family: 'Orbitron', sans-serif;
    font-size: 8rem;
    font-weight: 900;
-   line-height: 1;
+   line-height: 1.1;
+   /* Aumentado para evitar corte */
    letter-spacing: 0.1em;
    margin-bottom: 2rem;
    color: #ffffff;
@@ -342,6 +378,9 @@ nav.hidden {
       0 0 10px #00ff9d,
       0 0 20px #00ff9d,
       0 0 30px #00ff9d;
+   word-break: break-word;
+   /* Evitar corte de títulos */
+   hyphens: auto;
 }
 
 @keyframes glitch {
@@ -378,6 +417,9 @@ nav.hidden {
    letter-spacing: 0.3em;
    text-transform: uppercase;
    animation: pulse-glow 2s ease-in-out infinite;
+   word-break: break-word;
+   /* Evitar corte */
+   hyphens: auto;
 }
 
 @keyframes pulse-glow {
@@ -399,6 +441,7 @@ nav.hidden {
    margin: 0 auto 3rem;
    line-height: 1.8;
    font-weight: 400;
+   word-break: break-word;
 }
 
 .cta-container {
@@ -559,6 +602,8 @@ nav.hidden {
    margin-bottom: 1rem;
    color: #00ff9d;
    text-transform: uppercase;
+   word-break: break-word;
+   hyphens: auto;
 }
 
 .carousel-item p {
@@ -630,6 +675,7 @@ nav.hidden {
    position: relative;
    z-index: 1;
    text-shadow: 0 0 20px rgba(0, 255, 157, 0.5);
+   word-break: break-word;
 }
 
 .stat-label {
@@ -640,6 +686,7 @@ nav.hidden {
    letter-spacing: 0.1em;
    position: relative;
    z-index: 1;
+   word-break: break-word;
 }
 
 /* Horizontal Scroll Section */
@@ -648,23 +695,16 @@ nav.hidden {
    position: relative;
    z-index: 10;
    overflow: hidden;
+   animation: none !important;
+   /* Desactivar scroll infinito globalmente si es necesario, pero ya está en responsive */
 }
 
 .scroll-container {
    display: flex;
    gap: 3rem;
    padding: 0 5%;
-   animation: scroll-horizontal 40s linear infinite;
-}
-
-@keyframes scroll-horizontal {
-   0% {
-      transform: translateX(0);
-   }
-
-   100% {
-      transform: translateX(-50%);
-   }
+   animation: none;
+   /* Desactivar animación de scroll */
 }
 
 .scroll-card {
@@ -719,6 +759,8 @@ nav.hidden {
    margin-bottom: 1.5rem;
    color: #ffffff;
    text-transform: uppercase;
+   word-break: break-word;
+   hyphens: auto;
 }
 
 .scroll-card p {
@@ -830,6 +872,8 @@ nav.hidden {
    font-weight: 700;
    color: #00ff9d;
    text-transform: uppercase;
+   word-break: break-word;
+   hyphens: auto;
 }
 
 /* CTA Section */
@@ -876,6 +920,8 @@ nav.hidden {
    color: #00ff9d;
    text-shadow: 0 0 30px rgba(0, 255, 157, 0.5);
    animation: pulse-glow 2s ease-in-out infinite;
+   word-break: break-word;
+   hyphens: auto;
 }
 
 .cta-box p {
@@ -883,6 +929,7 @@ nav.hidden {
    color: rgba(255, 255, 255, 0.8);
    margin-bottom: 3rem;
    font-weight: 500;
+   word-break: break-word;
 }
 
 /* Footer */
@@ -900,6 +947,19 @@ footer {
    color: rgba(255, 255, 255, 0.5);
    text-transform: uppercase;
    letter-spacing: 0.1em;
+}
+
+/* Ajustes generales para títulos en todas las páginas */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+   word-break: break-word;
+   hyphens: auto;
+   line-height: 1.2;
+   overflow-wrap: break-word;
 }
 
 /* Responsive */
@@ -923,8 +983,51 @@ footer {
 }
 
 @media (max-width: 768px) {
+
+   /* Disable animations on mobile */
+   .wave,
+   .particle,
+   .hero h1,
+   .hero-subtitle,
+   .btn-primary,
+   .carousel-3d,
+   .carousel-icon,
+   .stat-card::before,
+   .scroll-container,
+   .morph-card,
+   .morph-card:nth-child(1),
+   .morph-card:nth-child(2),
+   .morph-card:nth-child(3),
+   .cta-box::before,
+   .cta-box h2 {
+      animation: none !important;
+   }
+
+   /* Hamburger menu */
+   .hamburger {
+      display: flex;
+   }
+
    .nav-menu {
       display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      gap: 1rem;
+      background: rgba(0, 0, 0, 0.9);
+      padding: 1rem;
+      text-align: center;
+   }
+
+   .nav-menu.active {
+      display: flex;
+   }
+
+   .nav-menu a {
+      display: block;
+      padding: 0.5rem;
    }
 
    .hero h1 {
@@ -949,25 +1052,117 @@ footer {
       justify-content: center;
    }
 
+   .carousel-section {
+      padding: 2rem 1rem;
+   }
+
    .carousel-container {
-      height: 400px;
+      height: auto !important;
+      perspective: none !important;
+      overflow: visible !important;
+   }
+
+   .carousel-3d {
+      position: relative !important;
+      width: 100% !important;
+      height: auto !important;
+      transform-style: flat !important;
+      animation: none !important;
+      transform: none !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      gap: 2rem !important;
    }
 
    .carousel-item {
-      width: 250px;
-      height: 350px;
-      margin-left: -125px;
-      margin-top: -175px;
-      padding: 2rem;
+      position: relative !important;
+      transform: none !important;
+      width: 90% !important;
+      height: auto !important;
+      margin: 0 auto !important;
+      /* Centrado de cards */
+      padding: 2rem !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      box-shadow: 0 0 20px rgba(0, 255, 157, 0.3) !important;
+      border: 1px solid rgba(0, 255, 157, 0.2) !important;
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(0, 0, 0, 0.2) 100%) !important;
    }
 
-   .scroll-card {
-      min-width: 300px;
-      height: 400px;
+   .carousel-item h3 {
+      font-size: 1.5rem;
+   }
+
+   /* Asegurar que no haya animaciones residuales */
+   .carousel-item:nth-child(1),
+   .carousel-item:nth-child(2),
+   .carousel-item:nth-child(3) {
+      transform: none !important;
+      opacity: 1 !important;
+   }
+
+   /* Adaptar Stats Cards */
+   .stats-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      padding: 0 1rem;
+   }
+
+   .stat-card {
+      padding: 2rem;
+      aspect-ratio: 1 / 1;
+      /* Make stats cards proportional (square) */
    }
 
    .stat-number {
-      font-size: 3.5rem;
+      font-size: 3rem;
+   }
+
+   .stat-label {
+      font-size: 1rem;
+   }
+
+   /* Adaptar Scroll Cards a estáticas */
+   .scroll-container {
+      flex-direction: column !important;
+      gap: 2rem !important;
+      padding: 0 1rem !important;
+      overflow: visible !important;
+      flex-wrap: nowrap !important;
+      animation: none !important;
+   }
+
+   .scroll-card {
+      min-width: auto !important;
+      width: 100% !important;
+      height: auto !important;
+      padding: 2rem !important;
+      transform: none !important;
+      opacity: 1 !important;
+      animation: none !important;
+      position: relative !important;
+      aspect-ratio: 4 / 5;
+      /* Make scroll cards proportional */
+   }
+
+   /* Adaptar Morph Cards */
+   .morph-card {
+      aspect-ratio: 1 / 1;
+      /* Ensure proportional */
+   }
+
+   /* Adaptar Navbar */
+   nav {
+      flex-direction: row !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+      padding: 1rem !important;
+   }
+
+   .logo {
+      font-size: 1.2rem;
+      margin-bottom: 0 !important;
    }
 
    .cta-box {
@@ -976,6 +1171,43 @@ footer {
 
    .cta-box h2 {
       font-size: 2.5rem;
+   }
+}
+
+/* Ajustes para Mobile más pequeño (max-width: 480px) */
+@media (max-width: 480px) {
+   .carousel-item {
+      width: 100% !important;
+      padding: 1.5rem !important;
+   }
+
+   .carousel-item h3 {
+      font-size: 1.2rem;
+   }
+
+   .stat-card {
+      padding: 1.5rem;
+   }
+
+   .stat-number {
+      font-size: 2.5rem;
+   }
+
+   .scroll-card {
+      padding: 1.5rem !important;
+   }
+
+   nav {
+      padding: 0.8rem !important;
+   }
+
+   .logo {
+      font-size: 1rem;
+   }
+
+   .nav-menu {
+      gap: 0.5rem !important;
+      font-size: 0.9rem;
    }
 }
 
@@ -1065,6 +1297,8 @@ footer {
    border: 1px solid rgba(255, 255, 255, 0.1);
    padding: 1.5rem;
    transition: transform 0.3s ease, border-color 0.3s ease;
+   aspect-ratio: 1 / 1;
+   /* Make data cards proportional (square) */
 }
 
 .data-card:hover {
@@ -1112,6 +1346,8 @@ footer {
    border-bottom: 1px solid rgba(0, 255, 157, 0.3);
    padding-bottom: 0.5rem;
    margin-bottom: 1rem;
+   word-break: break-word;
+   hyphens: auto;
 }
 
 .highlight-text {
@@ -1214,4 +1450,359 @@ footer {
    outline: none;
    border-color: #00ff9d;
    box-shadow: 0 0 15px rgba(0, 255, 157, 0.2);
+}
+
+/* Media Queries para Mobile (max-width: 768px) - Adaptar Carousel a Tarjetas Estáticas */
+@media (max-width: 768px) {
+
+   /* Additional card proportionality */
+   .carousel-item,
+   .stat-card,
+   .scroll-card,
+   .morph-card,
+   .data-card {
+      aspect-ratio: auto;
+      /* Allow natural height, but ensure width 100% for mobile */
+      width: 100% !important;
+      max-width: 100% !important;
+      min-height: auto !important;
+      padding: 1.5rem !important;
+   }
+
+   /* Improve UX: Larger touch targets */
+   .btn,
+   .nav-menu a {
+      padding: 1rem !important;
+      font-size: 1.1rem !important;
+   }
+
+   /* Smooth scrolling for better UI */
+   html {
+      scroll-behavior: smooth;
+   }
+}
+
+/* Títulos más pequeños en responsive */
+@media (max-width: 768px) {
+
+   #hero-title,
+   .hero h1 {
+      font-size: 2.2rem !important;
+      line-height: 1.1 !important;
+   }
+
+   .hero-subtitle {
+      font-size: 1rem !important;
+      letter-spacing: 0.15em !important;
+   }
+
+   /* Títulos de las cards */
+   h3 {
+      font-size: 1.3rem !important;
+      line-height: 1.2 !important;
+   }
+}
+
+@media (max-width: 480px) {
+
+   #hero-title,
+   .hero h1 {
+      font-size: 1.8rem !important;
+   }
+
+   h3 {
+      font-size: 1.1rem !important;
+   }
+}
+
+/* Centrar completamente las cards del hero en mobile */
+@media (max-width: 768px) {
+
+   .carousel-3d {
+      justify-content: center !important;
+      align-items: center !important;
+   }
+
+   .carousel-item {
+      margin: 0 auto !important;
+      display: flex !important;
+      justify-content: center !important;
+      text-align: center !important;
+   }
+}
+
+/* CENTRAR LAS CARDS DEL HERO (MECATRÓNICA, CÁLCULO, ANATOMÍA) EN MÓVIL */
+@media (max-width: 768px) {
+
+   .carousel-container,
+   .carousel-3d {
+      width: 100% !important;
+      margin: 0 auto !important;
+      padding: 0 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+   }
+
+   .carousel-item {
+      position: relative !important;
+      left: 0 !important;
+      top: 0 !important;
+      transform: none !important;
+
+      /*FIX CRÍTICO */
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+
+      /* Tamaño y centrado */
+      width: 90% !important;
+      max-width: 400px !important;
+      text-align: center !important;
+   }
+}
+
+/* --- MEDIA QUERIES PARA RESPONSIVE EN ANATOMÍA.HTML --- */
+/* Estas queries se agregan al final de style.css para sobrescribir estilos existentes.
+   Se enfocan en apilar grids, reducir tamaños de texto, escalar imágenes, prevenir desbordamientos
+   y mejorar la usabilidad en móviles. Usamos breakpoints comunes: tablet (1024px), mobile landscape (768px),
+   mobile portrait (480px). */
+
+/* Para tablets y abajo (max-width: 1024px) */
+@media (max-width: 1024px) {
+
+   /* Ajustar hero content para no desbordar */
+   .hero-content {
+      padding: 0 2rem;
+   }
+
+   #hero-title {
+      font-size: 3rem !important;
+   }
+
+   .hero-description {
+      font-size: 1.1rem;
+   }
+
+   /* Reducir grid columns en data-card-grid */
+   .data-card-grid {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+   }
+
+   /* Tech-grid: reducir gap y ajustar columnas si es necesario */
+   .tech-grid {
+      gap: 2rem;
+   }
+
+   /* Imágenes: asegurar que no desborden */
+   img {
+      max-width: 100%;
+      height: auto;
+   }
+
+   /* Tabla: hacer scroll horizontal si es ancha */
+   .tech-table {
+      overflow-x: auto;
+      display: block;
+   }
+
+   /* Video: ajustar aspect-ratio */
+   .video-placeholder {
+      aspect-ratio: 16/9;
+   }
+}
+
+/* Para móviles landscape y tablets pequeñas (max-width: 768px) */
+@media (max-width: 768px) {
+
+   /* Navbar: ya tiene hamburger, pero asegurar centrado y no desborde */
+   nav {
+      padding: 1rem 2rem;
+   }
+
+   .nav-menu {
+      gap: 1rem;
+   }
+
+   /* Hero: reducir tamaños para evitar corte */
+   .hero {
+      min-height: 80vh;
+      /* Reducir altura para no forzar scroll innecesario */
+      padding: 0 1rem;
+   }
+
+   #hero-title {
+      font-size: 2.5rem !important;
+      line-height: 1.1;
+   }
+
+   .hero-description {
+      font-size: 1rem;
+      max-width: 100%;
+   }
+
+   /* CTA sections: ajustar padding y max-width */
+   .cta-section {
+      padding: 2rem 1rem;
+   }
+
+   .cta-box {
+      max-width: 100%;
+      padding: 2rem 1.5rem;
+   }
+
+   /* Data-card-grid: apilar en una columna */
+   .data-card-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+   }
+
+   .data-card {
+      aspect-ratio: auto;
+      /* Permitir altura natural */
+      padding: 1.5rem;
+   }
+
+   /* Tech-grid: apilar en una columna para evitar desborde */
+   .tech-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+   }
+
+   /* Info-panels: reducir padding */
+   .info-panel {
+      padding: 1.5rem;
+   }
+
+   /* Imágenes en cards: centrar y escalar */
+   .data-card img,
+   .cyber-img-container img {
+      width: 80%;
+      margin: 0 auto;
+      display: block;
+   }
+
+   /* Tabla: reducir padding y fuentes */
+   .tech-table th,
+   .tech-table td {
+      padding: 0.75rem;
+      font-size: 0.9rem;
+   }
+
+   /* Video: asegurar full-width sin desborde */
+   .video-placeholder {
+      width: 100%;
+      height: auto;
+   }
+
+   video {
+      width: 100%;
+      height: auto;
+   }
+
+   /* Formulario: inputs full-width */
+   .cta-box form {
+      max-width: 100%;
+   }
+
+   .tech-input {
+      font-size: 1rem;
+      padding: 0.75rem;
+   }
+
+   button.btn-primary {
+      padding: 1rem;
+      font-size: 1rem;
+   }
+
+   /* Footer: reducir padding y fuente */
+   footer {
+      padding: 2rem 1rem;
+   }
+
+   .footer-content {
+      font-size: 0.75rem;
+   }
+
+   /* Prevenir desbordes generales */
+   body,
+   main,
+   section {
+      overflow-x: hidden;
+   }
+}
+
+/* Para móviles portrait pequeños (max-width: 480px) */
+@media (max-width: 480px) {
+
+   /* Hero: tamaños más pequeños */
+   #hero-title {
+      font-size: 2rem !important;
+   }
+
+   .hero-description {
+      font-size: 0.9rem;
+   }
+
+   /* Cards: reducir padding */
+   .data-card,
+   .info-panel {
+      padding: 1rem;
+   }
+
+   .data-value {
+      font-size: 1.5rem;
+   }
+
+   .data-label {
+      font-size: 0.8rem;
+   }
+
+   /* Listas: reducir margen */
+   .tech-list li {
+      margin-bottom: 0.75rem;
+      font-size: 0.9rem;
+   }
+
+   /* Tabla: fuentes más pequeñas */
+   .tech-table th,
+   .tech-table td {
+      padding: 0.5rem;
+      font-size: 0.8rem;
+   }
+
+   /* Form: labels y inputs ajustados */
+   label {
+      font-size: 0.9rem;
+   }
+
+   .tech-input {
+      padding: 0.75rem;
+      font-size: 0.9rem;
+   }
+
+   /* Footer: lista más compacta */
+   .footer-content ul li {
+      margin-bottom: 0.5rem;
+      font-size: 0.7rem;
+   }
+}
+
+/* Ajustes adicionales para prevenir desbordes en cualquier tamaño */
+img,
+video,
+iframe,
+table {
+   max-width: 100%;
+   height: auto;
+   display: block;
+   /* Evita espacios extra en imágenes */
+   margin: 0 auto;
+   /* Centrar elementos visuales */
+}
+
+.overflow-hidden {
+   overflow: hidden;
+   /* Aplicar a contenedores si es necesario, ej: .cta-box */
 }
