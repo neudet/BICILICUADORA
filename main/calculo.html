@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BICILICUADORA-CÁLCULO</title>
+    <title>BICILICUADORA - CÁLCULO</title>
     <script src="/_sdk/element_sdk.js"></script>
     <link
         href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&amp;family=Rajdhani:wght@300;400;500;600;700&amp;display=swap"
@@ -15,85 +15,202 @@
     <script src="script.js" defer></script>
 </head>
 
-
 <body>
     <br id="inicio">
     <br>
     <br>
     <br>
+
     <div class="animated-bg">
         <div class="wave"></div>
         <div class="wave"></div>
         <div class="wave"></div>
     </div>
     <div class="particles" id="particles"></div>
+
     <nav id="navbar">
         <a class="logo" href="index.html">
             BICILICUADORA
         </a>
         <ul class="nav-menu">
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#transversalidad">Transversalidad</a></li>
-            <li><a href="#stats">Stats</a></li>
-            <li><a href="#contacto">Contacto</a></li>
+            <li><a href="index.html#inicio">Inicio</a></li>
+            <li><a href="index.html#transversalidad">Transversalidad</a></li>
+            <li><a href="index.html#stats">Stats</a></li>
+            <li><a href="index.html#contacto">Contacto</a></li>
         </ul>
     </nav>
+
     <main>
         <section class="hero">
             <div class="hero-content">
                 <div class="glitch-wrapper">
-                    <h1 id="hero-title">TRABAJO MECÁNICO</h1>
+                    <h1 id="hero-title" style="font-size: 5rem;">TRABAJO MECÁNICO</h1>
+                </div>
+                <p class="hero-subtitle" style="font-size: 1.5rem; margin-top: -1rem;">ANÁLISIS FÍSICO-MATEMÁTICO</p>
+            </div>
+        </section>
+
+        <section class="cta-section" id="definicion" style="padding: 5rem 5%;">
+            <div class="tech-grid">
+                <div>
+                    <h2 style="font-family: 'Orbitron'; color: white; font-size: 2.5rem; margin-bottom: 1rem;">
+                        DEFINICIÓN DEL SISTEMA</h2>
+                    <p style="color: rgba(255,255,255,0.8); font-size: 1.1rem; line-height: 1.8;">
+                        El trabajo mecánico es la energía transferida cuando una fuerza produce un desplazamiento.
+                        En nuestro sistema de <strong>Bicimáquina</strong>, no basta con aplicar fuerza: la
+                        transferencia de energía
+                        solo ocurre cuando los pedales se mueven en la dirección del esfuerzo.
+                    </p>
+                    <div class="equation-box">
+                        W = F × d
+                    </div>
+                    <p style="font-size: 0.9rem; color: #00ff9d;">* Donde W es Trabajo, F es Fuerza y d es Distancia.
+                    </p>
+                </div>
+                <div class="stats-grid" style="grid-template-columns: 1fr; gap: 1rem;">
+                    <div class="stat-card" style="padding: 1.5rem;">
+                        <div class="stat-number" style="font-size: 2.5rem;">W</div>
+                        <div class="stat-label">Trabajo (Joules)</div>
+                    </div>
+                    <div class="stat-card" style="padding: 1.5rem;">
+                        <div class="stat-number" style="font-size: 2.5rem;">F</div>
+                        <div class="stat-label">Fuerza (Newtons)</div>
+                    </div>
+                    <div class="stat-card" style="padding: 1.5rem;">
+                        <div class="stat-number" style="font-size: 2.5rem;">d</div>
+                        <div class="stat-label">Distancia (Metros)</div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="cta-section" id="contacto">
-            <div class="cta-box">
-                <div class="cta-content">
-                    <h2>DEFINICIÓN</h2>
-                    <p>El trabajo mecánico es la energía que se transfiere cuando una fuerza produce un desplazamiento.
-                        En física, no basta con aplicar una fuerza: para que exista trabajo, el objeto debe moverse en
-                        la dirección de esa fuerza. Por eso el trabajo relaciona directamente la intensidad de la fuerza
-                        y la distancia que recorre el cuerpo mientras dicha fuerza actúa.
-                        <br><br>
-                        La expresión general del trabajo es:<br>
-                        W = F x d
+        <section class="cta-section" style="background: rgba(0, 255, 157, 0.02);">
+            <div class="tech-grid">
+                <div class="cyber-img-container">
+                    <img src="img1.1.png" alt="Diagrama de la bicicleta">
+                </div>
+
+                <div>
+                    <h2 style="font-family: 'Orbitron'; color: #00ff9d; font-size: 2.5rem; margin-bottom: 1rem;">
+                        APLICACIÓN PRÁCTICA</h2>
+                    <p style="color: rgba(255,255,255,0.8); margin-bottom: 1.5rem;">
+                        La fuerza del ciclista se transmite a la rueda trasera. La bicicleta avanza una distancia
+                        específica por cada revolución.
+                        Dado que el radio de la llanta es de <strong>20cm</strong>, la distancia por revolución es:
+                    </p>
+
+                    <div class="equation-box" style="font-size: 1.5rem; padding: 1rem;">
+                        d = 1.25 × n
+                    </div>
+
+                    <p style="color: rgba(255,255,255,0.6);">
+                        Al multiplicar la fuerza aplicada por esta distancia acumulada, obtenemos el trabajo mecánico
+                        total
+                        durante las (n) revoluciones.
                     </p>
                 </div>
             </div>
         </section>
-        <section class="stats-parallax" id="stats">
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number" id="stat-1-number">
-                        W
+
+        <section class="cta-section" id="integral">
+            <div class="cta-box" style="max-width: 1400px; text-align: left;">
+                <div class="cta-content">
+                    <h2 style="text-align: center;">LA INTEGRAL DE TRABAJO</h2>
+                    <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem auto;">
+                        Cuando la fuerza <strong>no es constante</strong> (varía con el ángulo del pedaleo), usamos el
+                        cálculo integral
+                        para sumar infinitos aportes pequeños de energía.
+                    </p>
+
+                    <div style="display: flex; justify-content: center;">
+                        <div class="equation-box" style="display: inline-block;">
+                            W = ∫ F(x) dx
+                        </div>
                     </div>
-                    <div class="stat-label" id="stat-1-label">
-                        es el trabajo (en joules, J)
+
+                    <h3 style="font-family: 'Orbitron'; color: white; margin-top: 3rem;">DATOS DE PRUEBA</h3>
+
+                    <div class="data-card-grid">
+                        <div class="data-card">
+                            <div class="data-value">60 N</div>
+                            <div class="data-label">Fuerza Tangencial</div>
+                        </div>
+                        <div class="data-card">
+                            <div class="data-value">1.25 m</div>
+                            <div class="data-label">Distancia / Rev</div>
+                        </div>
+                        <div class="data-card">
+                            <div class="data-value">80</div>
+                            <div class="data-label">RPM</div>
+                        </div>
+                        <div class="data-card">
+                            <div class="data-value">60 s</div>
+                            <div class="data-label">Tiempo Total</div>
+                        </div>
                     </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number" id="stat-2-number">
-                        F
-                    </div>
-                    <div class="stat-label" id="stat-2-label">
-                        es la fuerza aplicada (en newtons, N)
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number" id="stat-3-number">
-                        d
-                    </div>
-                    <div class="stat-label" id="stat-3-label">
-                        es la distancia recorrida (en metros, m)
+
+                    <h3 style="font-family: 'Orbitron'; color: white; margin-top: 3rem;">RESULTADOS CALCULADOS</h3>
+
+                    <div class="data-card-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+                        <div class="data-card" style="border-color: #00ff9d;">
+                            <div class="data-label">Distancia Total</div>
+                            <div class="data-value">100 m</div>
+                            <p style="font-size: 0.8rem; color: rgba(255,255,255,0.5);">80 rev × 1.25 m/rev</p>
+                        </div>
+                        <div class="data-card" style="border-color: #00ff9d;">
+                            <div class="data-label">Trabajo Mecánico</div>
+                            <div class="data-value">6000 J</div>
+                            <p style="font-size: 0.8rem; color: rgba(255,255,255,0.5);">W = 60 N × 100 m</p>
+                        </div>
+                        <div class="data-card" style="border-color: #00ff9d;">
+                            <div class="data-label">Potencia Promedio</div>
+                            <div class="data-value">100 W</div>
+                            <p style="font-size: 0.8rem; color: rgba(255,255,255,0.5);">P = 6000 J / 60 s</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
+
+        <section class="cta-section" id="graf">
+            <div class="tech-grid">
+                <div>
+                    <h2 style="font-family: 'Orbitron'; font-size: 2rem; color: #00ff9d;">ANÁLISIS GRÁFICO</h2>
+                    <p style="margin-bottom: 1rem;">
+                        Representación de F(x) vs x. Dado que la fuerza es constante (recta horizontal) a 60N desde x=0
+                        hasta x=100m.
+                    </p>
+                    <div class="data-card">
+                        <p style="color: #00ff9d; font-weight: bold;">ÁREA BAJO LA CURVA</p>
+                        <p>El área sombreada representa matemáticamente los 6000 Joules de energía generada.</p>
+                    </div>
+                </div>
+                <div class="cyber-img-container">
+                    <img src="img1.2.png" alt="Gráfica de Trabajo">
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section" id="conclusion" style="margin-bottom: 5rem;">
+            <div class="cta-box" style="border-style: dashed;">
+                <div class="cta-content">
+                    <h2 style="color: white;">CONCLUSIÓN TÉCNICA</h2>
+                    <p style="font-size: 1.1rem; line-height: 1.8;">
+                        La integral <span style="color: #00ff9d;">W = ∫ F(x) dx</span> es la herramienta fundamental.
+                        Aunque en condiciones ideales (fuerza constante)
+                        se reduce a una multiplicación simple, el modelo matemático demuestra que un humano promedio
+                        puede sostener una generación de <strong>100 Watts</strong>, suficiente para licuar alimentos o
+                        cargar dispositivos,
+                        validando la viabilidad del proyecto Bicimáquina.
+                    </p>
+                </div>
+            </div>
+        </section>
+
     </main>
     <footer>
         <div class="footer-content">
-            © Aquí van nuestros datos
+            © O. Alcaraz, K. Guzmán, P. Hernández, J. Luna, H. Serrano, A. Torres
         </div>
     </footer>
 </body>
